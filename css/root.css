@@ -77,13 +77,52 @@ body {
 }
 
 .cs-button {
-    font-family: var(--default-font);
+  font-family: var(--default-font);
 }
 
 .cs-nav-button {
-    font-family: var(--default-font);
+  font-family: var(--default-font);
 }
 
+.cs-h3 {
+  font-family: var(--default-font);
+}
+
+.cs-item-text {
+  font-family: var(--default-font);
+}
+
+.cs-fake-link {
+  font-family: var(--default-font);
+}
+
+.cs-button-solid {
+  font-family: var(--default-font);
+}
+
+.cs-label {
+  font-family: var(--default-font);
+}
+
+.cs-header {
+  font-family: var(--default-font);
+}
+
+.cs-address {
+  font-family: var(--default-font);
+}
+
+.cs-hours-info {
+  font-family: var(--default-font);
+}
+
+.cs-nav-link {
+  font-family: var(--default-font);
+}
+
+.cs-bottom {
+  font-family: var(--default-font);
+}
 
 
 /*-- -------------------------- -->
