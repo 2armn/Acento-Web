@@ -1726,5 +1726,1092 @@
 }
 
                                 
+/*-- -------------------------- -->
+<---          Banner            -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #banner-712 {
+        /* 175px - 200px top */
+        padding: clamp(10.9375rem, 10vw, 12.5rem) 1rem 6.25rem;
+        position: relative;
+        z-index: 1;
+    }
+    #banner-712 .cs-container {
+        text-align: center;
+        width: 100%;
+        max-width: 80rem;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    #banner-712 .cs-int-title {
+        /* 39px - 61px */
+        font-size: clamp(2.4375rem, 6.4vw, 3.8125rem);
+        font-weight: bold;
+        line-height: 1.2em;
+        text-align: inherit;
+        margin: 0;
+        color: var(--bodyTextColorWhite);
+        position: relative;
+        font-family: var(--default-font);
+    }
+    #banner-712 .cs-background {
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+    #banner-712 .cs-background:before {
+        /* background color overlay */
+        content: "";
+        position: absolute;
+        display: block;
+        height: 100%;
+        width: 100%;
+        background: #000;
+        opacity: 0.75;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+    #banner-712 .cs-background img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        /* Makes img tag act as a background image */
+        object-fit: cover;
+    }
+}
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #banner-712 .cs-background:before {
+        opacity: 1;
+        background: linear-gradient(
+            90.01deg,
+            rgba(0, 0, 0, 0.9) 16.86%,
+            rgba(0, 0, 0, 0) 100%
+        );
+    }
+}
+
+                                
+
+
+/*-- -------------------------- -->
+<---          Gallery           -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+  #gallery-404 {
+    padding: var(--sectionPadding);
+    overflow: hidden;
+    position: relative;
+  }
+  #gallery-404 .cs-container {
+    width: 100%;
+    /* changes to 1280px at tablet */
+    max-width: 34.375rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* 48px - 64px */
+    gap: clamp(3rem, 6vw, 4rem);
+    position: relative;
+  }
+  #gallery-404 .cs-content {
+    /* set text align to left if content needs to be left aligned */
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* centers content horizontally, set to flex-start to left align */
+    align-items: center;
+  }
+  #gallery-404 .cs-title {
+    max-width: 20ch;
+  }
+  #gallery-404 .cs-button-group {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+    column-gap: 2rem;
+  }
+  #gallery-404 .cs-button {
+    font-size: 1rem;
+    line-height: 1.5em;
+    color: var(--bodyTextColor);
+    background-color: transparent;
+    border: none;
+    transition: color 0.3s;
+  }
+  #gallery-404 .cs-button:hover {
+    color: var(--primary);
+    cursor: pointer;
+  }
+  #gallery-404 .cs-button.cs-active {
+    color: var(--primary);
+  }
+  #gallery-404 .cs-gallery-wrapper {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+  #gallery-404 .cs-gallery {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* 16px - 20px */
+    gap: clamp(1rem, 1.5vw, 1.25rem);
+    transition: transform 0.7s, opacity 0.3s, visibility 0.5s, top 0.3s, left 0.3s;
+    /* makes the transform scaling origin the top left corner, dictates the direction by which the scale transforms animate towards */
+    transform-origin: left top;
+  }
+  #gallery-404 .cs-gallery.cs-hidden {
+    /* by using visibility:hidden instead of display:none, we can see the animations from the opacity and transforms, display:none won't render animations. */
+    visibility: hidden;
+    /* prevents the mouse from interacting with it */
+    pointer-events: none;
+    /* hidden galleries have a 0 opacity, and we animate the opacity to 1 when they become active */
+    opacity: 0;
+    /* this top and left value help control the animation, by setting it to position absolute and left 0, the gallery won't fly off screen to the left, it will stop its position to be at the left edge of the .cs-container (left: 0). Same for the top:0 value, the gallery won't go past that position when it animates */
+    top: 0;
+    left: 0;
+    position: absolute;
+    /* prevents the hidden galleries from overflowing the section, and makes a nice animations to transition to and from */
+    transform: scaleY(0) scaleX(0);
+  }
+  #gallery-404 .cs-gallery.cs-hidden .cs-image {
+    /* when gallery is hidden, add these styles to the cs-image to animate from when cs-hidden is removed from the .cs-gallery */
+    transform: translateY(2.1875rem);
+    opacity: 0;
+  }
+  #gallery-404 .cs-image {
+    border-radius: 1.25rem;
+    width: 47%;
+    aspect-ratio: 1;
+    /* clips the image corners */
+    overflow: hidden;
+    display: block;
+    position: relative;
+    /* when .cs-hidden is removed from the .cs-gallery, reset these values and animate between their hidden styles */
+    transform: translateY(0rem);
+    opacity: 1;
+    transition: opacity 0.6s, transform 0.6s;
+  }
+  #gallery-404 .cs-image:nth-of-type(1) {
+    /* changes transition delays at desktop */
+    /* these delays stagger the reveal of each image so they all go one after the other and not all at once */
+    transition-delay: 0.15s;
+  }
+  #gallery-404 .cs-image:nth-of-type(2) {
+    transition-delay: 0.3s;
+  }
+  #gallery-404 .cs-image:nth-of-type(3) {
+    transition-delay: 0.45s;
+  }
+  #gallery-404 .cs-image:nth-of-type(4) {
+    transition-delay: 0.6s;
+  }
+  #gallery-404 .cs-image:nth-of-type(5) {
+    transition-delay: 0.75s;
+  }
+  #gallery-404 .cs-image:nth-of-type(6) {
+    transition-delay: 0.9s;
+  }
+  #gallery-404 .cs-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    /* makes it act like a background image */
+    object-fit: cover;
+  }
+}
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+  #gallery-404 .cs-container {
+    max-width: 80rem;
+  }
+  #gallery-404 .cs-content {
+    text-align: left;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  #gallery-404 .cs-title {
+    margin: 0;
+  }
+  #gallery-404 .cs-image {
+    width: 31.8%;
+    aspect-ratio: 1;
+  }
+}
+/* Desktop - 1300px */
+@media only screen and (min-width: 81.25rem) {
+  #gallery-404 .cs-flex {
+    max-width: 34.375rem;
+  }
+  #gallery-404 .cs-gallery {
+    align-items: stretch;
+    justify-content: center;
+  }
+  #gallery-404 .cs-image {
+    width: 39.375rem;
+    max-width: 100%;
+    height: 25rem;
+  }
+  #gallery-404 .cs-image:nth-of-type(2),
+  #gallery-404 .cs-image:nth-of-type(3),
+  #gallery-404 .cs-image:nth-of-type(4),
+  #gallery-404 .cs-image:nth-of-type(5) {
+    width: 19.0625rem;
+  }
+  #gallery-404 .cs-image:nth-of-type(1) {
+    /* these delays stagger the reveal of each image so they all go one after the other and not all at once */
+    transition-delay: 0.15s;
+  }
+  #gallery-404 .cs-image:nth-of-type(2) {
+    transition-delay: 0.3s;
+  }
+  #gallery-404 .cs-image:nth-of-type(3) {
+    transition-delay: 0.45s;
+  }
+  #gallery-404 .cs-image:nth-of-type(4) {
+    transition-delay: 0.15s;
+  }
+  #gallery-404 .cs-image:nth-of-type(5) {
+    transition-delay: 0.3s;
+  }
+  #gallery-404 .cs-image:nth-of-type(6) {
+    transition-delay: 0.45s;
+  }
+}
+                                
+
+
+/*-- -------------------------- -->
+<---       Side By Side         -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #sbs-1308 {
+        padding: var(--sectionPadding);
+        overflow: hidden;
+    }
+    #sbs-1308 .cs-container {
+        width: 100%;
+        /* changes to 1280px at desktop */
+        max-width: 36.5rem;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: clamp(3rem, 4vw, 4rem);
+    }
+    #sbs-1308 .cs-content {
+        /* set text align to left if content needs to be left aligned */
+        text-align: left;
+        width: 100%;
+        max-width: 33.875rem;
+        display: flex;
+        flex-direction: column;
+        /* centers content horizontally, set to flex-start to left align */
+        align-items: flex-start;
+        position: relative;
+        z-index: 10;
+    }
+
+    #sbs-1308 .cs-text {
+        margin-bottom: 1rem;
+    }
+    #sbs-1308 .cs-text:last-of-type {
+        margin-bottom: 2rem;
+    }
+    #sbs-1308 .cs-button-solid {
+        font-size: 1rem;
+        /* 46px - 56px */
+        line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+        text-decoration: none;
+        font-weight: 700;
+        text-align: center;
+        margin: 0;
+        color: #ededed;
+        min-width: 9.375rem;
+        padding: 0 1.5rem;
+        background-color: var(--primary);
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        /* prevents padding from adding to the width */
+        box-sizing: border-box;
+        transition: color 0.3s;
+    }
+    #sbs-1308 .cs-button-solid:before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 0%;
+        background: #000;
+        opacity: 1;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: width 0.3s;
+    }
+    #sbs-1308 .cs-button-solid:hover {
+        color: #fff;
+    }
+    #sbs-1308 .cs-button-solid:hover:before {
+        width: 100%;
+    }
+    #sbs-1308 .cs-ul {
+        width: 100%;
+        padding: 0;
+        /* 32px - 48px */
+        margin: clamp(2rem, 5vw, 3rem) 0 0 0;
+        /* 32px - 48px */
+        padding: clamp(2rem, 5vw, 3rem) 0 0 0;
+        border-top: 1px solid #e8e8e8;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 0.75rem;
+    }
+    #sbs-1308 .cs-item {
+        list-style: none;
+        width: 32%;
+        /* making flex so we can align a heading with 1 line to the bottom */
+        display: flex;
+        flex-direction: column;
+        align-self: stretch;
+        align-content: space-between;
+    }
+    #sbs-1308 .cs-number {
+        font-size: 1.5625rem;
+        line-height: 1.2em;
+        font-weight: 700;
+        text-align: left;
+        color: var(--primary);
+        display: block;
+        margin: 0 0 0.5rem 0;
+    }
+    #sbs-1308 .cs-h3 {
+        font-size: 1rem;
+        line-height: 1.5em;
+        font-weight: 400;
+        text-align: left;
+        /* auto margin top will push text to bottom if there's only one line */
+        margin: 0;
+        color: var(--bodyTextColor);
+    }
+    #sbs-1308 .cs-image-group {
+        width: 100%;
+        max-width: 41.875rem;
+        height: 100vw;
+        max-height: 39.375rem;
+        position: relative;
+        display: block;
+        z-index: 1;
+    }
+    #sbs-1308 .cs-picture {
+        /* big background image */
+        width: 93%;
+        height: 93%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+    }
+    #sbs-1308 .cs-picture img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    #sbs-1308 .cs-box {
+        text-align: left;
+        width: 70%;
+        max-width: 19rem;
+        /* 20px - 40px */
+        padding: clamp(1.25rem, 4vw, 2.5rem);
+        /* prevents padding and border from affecting height and width */
+        box-sizing: border-box;
+        background-color: #1a1a1a;
+        display: inline-flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.5rem;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+    }
+    #sbs-1308 .cs-desc {
+        /* 16px - 31px */
+        font-size: clamp(1rem, 2.5vw, 1.9375rem);
+        line-height: 1.2em;
+        font-weight: 700;
+        text-align: inherit;
+        width: 100%;
+        color: var(--bodyTextColorWhite);
+        position: relative;
+        z-index: 10;
+    }
+    #sbs-1308 .cs-graphic {
+        width: 150%;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+    }
+}
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #sbs-1308 .cs-container {
+        max-width: 80rem;
+        /* set to horizontal arrangement */
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: stretch;
+    }
+    #sbs-1308 .cs-content {
+        width: 48%;
+        padding: 3rem 0;
+        align-self: center;
+        /* prevents flexbox from squishing it */
+        flex: none;
+    }
+    #sbs-1308 .cs-image-group {
+        width: 55%;
+        max-width: 41.875rem;
+        min-height: 41.875rem;
+        max-height: 100%;
+        height: auto;
+        margin: 0;
+    }
+    #sbs-1308 .cs-picture {
+        width: 93%;
+        height: 94%;
+    }
+    #sbs-1308 .cs-box {
+        bottom: 0rem;
+    }
+    #sbs-1308 .cs-graphic {
+        max-width: 44.6875rem;
+        left: auto;
+        right: 8.125rem;
+        transform: translateY(-50%);
+    }
+}
+
+
+
+/*-- -------------------------- -->
+<---       Side By Side         -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+  #RTsbs-1594,
+  #RTsbsr-1594,
+  #RTsbst-1594 {
+    padding: var(--sectionPadding);
+  }
+  #RTsbs-1594 .cs-container,
+  #RTsbsr-1594 .cs-container,
+  #RTsbst-1594 .cs-container {
+    width: 100%;
+    /* changes to 1280px at desktop */
+    max-width: 34.375rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* 48px - 64px */
+    gap: clamp(3rem, 6vw, 4rem);
+  }
+  #RTsbs-1594 .cs-content,
+  #RTsbsr-1594 .cs-content,
+  #RTsbst-1594 .cs-content {
+    /* set text align to left if content needs to be left aligned */
+    text-align: left;
+    width: 100%;
+    max-width: 36.625rem;
+    display: flex;
+    flex-direction: column;
+    /* centers content horizontally, set to flex-start to left align */
+    align-items: flex-start;
+  }
+  #RTsbs-1594 .cs-text,
+  #RTsbsr-1594 .cs-text,
+  #RTsbst-1594 .cs-text {
+    margin-bottom: 1rem;
+  }
+  #RTsbs-1594 .cs-text:last-of-type,
+  #RTsbsr-1594 .cs-text:last-of-type,
+  #RTsbst-1594 .cs-text:last-of-type {
+    margin-bottom: 2rem;
+  }
+  #RTsbs-1594 .cs-button-solid,
+  #RTsbsr-1594 .cs-button-solid,
+  #RTsbst-1594 .cs-button-solid {
+    font-size: 1rem;
+    /* 46px - 56px */
+    line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+    text-decoration: none;
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+    color: #fff;
+    min-width: 9.375rem;
+    padding: 0 3rem;
+    background-color: var(--primary);
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    /* prevents padding from adding to the width */
+    box-sizing: border-box;
+  }
+  #RTsbs-1594 .cs-button-solid:before,
+  #RTsbsr-1594 .cs-button-solid:before,
+  #RTsbst-1594 .cs-button-solid:before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    background: #000;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: width .3s;
+  }
+  #RTsbs-1594 .cs-button-solid:hover:before,
+  #RTsbsr-1594 .cs-button-solid:hover:before,
+  #RTsbst-1594 .cs-button-solid:hover:before {
+    width: 100%;
+  }
+  #RTsbs-1594 .cs-image-group,
+  #RTsbsr-1594 .cs-image-group,
+  #RTsbst-1594 .cs-image-group {
+    /* scales the whole group based on the view width size and stop when that vales equals .745em, resets at desktop */
+    font-size: min(1.959vw, .745em);
+    width: 39.375em;
+    /* we set a minimum height so it never gets smaller than this value */
+    min-height: 39.25em;
+    display: block;
+    position: relative;
+    z-index: 1;
+  }
+  #RTsbs-1594 .cs-picture,
+  #RTsbsr-1594 .cs-picture,
+  #RTsbst-1594 .cs-picture {
+    position: absolute;
+  }
+  #RTsbs-1594 .cs-picture img,
+  #RTsbsr-1594 .cs-picture img,
+  #RTsbst-1594 .cs-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  #RTsbs-1594 .cs-picture1,
+  #RTsbsr-1594 .cs-picture1,
+  #RTsbst-1594 .cs-picture1 {
+    /* the percentage heights allow them to be responsive to the height of the parent cs-image-group. On desktop, when the felxbox is set to aling-items: stretch, the cs-image group will stretch to fill the height of the parent container. So when you add more content to the cs-content group and make it taller, the cs-image group will get taller with it and every image will stretch with the parent, making this entire group responsive to the changing amounts of content next to it */
+    width: 25.8125em;
+    height: 79.617834%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  #RTsbs-1594 .cs-picture2,
+  #RTsbsr-1594 .cs-picture2,
+  #RTsbst-1594 .cs-picture2 {
+    width: 25.8125em;
+    height: 44.585987%;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+  }
+}
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+  #RTsbs-1594 .cs-container,
+  #RTsbsr-1594 .cs-container,
+  #RTsbst-1594 .cs-container {
+    max-width: 80rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+  #RTsbs-1594 .cs-content,
+  #RTsbsr-1594 .cs-content,
+  #RTsbst-1594 .cs-content {
+    /* this padding sets a minimum gap between the top and bottom of the content div and the top and bottom of the cs-image-group */
+    padding: 3.75rem 0;
+    /* while the cs-image-group will stretch to fill the height of the parent, this property will ensure that the cs-content group aligns itse;f in the center of the parent div instead of stretching */
+    align-self: center;
+  }
+  #RTsbs-1594 .cs-image-group,
+  #RTsbsr-1594 .cs-image-group,
+  #RTsbst-1594 .cs-image-group {
+    font-size: min(1.2vw, 1em);
+    flex: none;
+  }
+}
+
+/*-- -------------------------- -->
+<---   Side By Side Reverse     -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+  #RTsbsr-1594 {
+    background-color: #f7f7f7;
+  }
+  #RTsbsr-1594 .cs-picture1 {
+    left: auto;
+    right: 0;
+  }
+  #RTsbsr-1594 .cs-picture2 {
+    right: auto;
+    left: 0;
+  }
+}
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+  #RTsbsr-1594 .cs-image-group {
+    /* sends it to the right in the 2nd position */
+    order: 2;
+  }
+}
+                                
+
+
+/*-- -------------------------- -->
+<---   Lista     -->
+<--- -------------------------- -*/
+/* Mobile - 360px */
+/* you can copy and paste these styles into the section CSS where you placed the #list-1165 HTML, or you can place it in your global stylesheet so you can reuse the HTML in any Side By Side section on your site. That way when you make changes to it, it will also change everywhere in the site */
+@media only screen and (min-width: 0rem) {
+    #list-1165 {
+        max-width: 39.375rem;
+        margin: 0 0 2rem 0;
+        padding: 0;
+        /* clips the bullets to create the half circle */
+        overflow: hidden;
+    }
+    #list-1165 .cs-li {
+        list-style: none;
+        margin: 0 0 0.5rem 0;
+        color: var(--bodyTextColor);
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 0.75rem;
+        position: relative;
+    }
+    #list-1165 .cs-li:before {
+        /* bullet */
+        content: "";
+        width: 0.5rem;
+        height: 0.5rem;
+        margin-top: 0.5rem;
+        background: var(--secondary);
+        display: block;
+        /* prevents flexbox from squishing it */
+        flex: none;
+    }
+}
+
+
+
+/*-- -------------------------- -->
+<---     Navigation Dropdown    -->
+<--- -------------------------- -*/
+/* Mobile - 1023px */
+@media only screen and (max-width: 63.9375rem) {
+  #cs-navigation .cs-li {
+    text-align: center;
+    width: 100%;
+    display: block;
+  }
+  #cs-navigation .cs-dropdown {
+    color: var(--bodyTextColorWhite);
+    position: relative;
+  }
+  #cs-navigation .cs-dropdown.cs-active .cs-drop-ul {
+    height: auto;
+    margin: 0.75rem 0 0 0;
+    padding: 0.75rem 0;
+    opacity: 1;
+    visibility: visible;
+  }
+  #cs-navigation .cs-dropdown.cs-active .cs-drop-link {
+    opacity: 1;
+  }
+  #cs-navigation .cs-dropdown .cs-li-link {
+    position: relative;
+    transition: opacity 0.3s;
+  }
+  #cs-navigation .cs-drop-icon {
+    width: 0.9375rem;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    right: -1.25rem;
+    transform: translateY(-50%);
+  }
+  #cs-navigation .cs-drop-ul {
+    width: 100%;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary);
+    opacity: 0;
+    display: flex;
+    visibility: hidden;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.75rem;
+    overflow: hidden;
+    transition: padding 0.3s, margin 0.3s, height 0.3s, opacity 0.3s, visibility 0.3s;
+  }
+  #cs-navigation .cs-drop-li {
+    list-style: none;
+  }
+  #cs-navigation .cs-li-link.cs-drop-link {
+    /* 14px - 16px */
+    font-size: clamp(0.875rem, 2vw, 1.25rem);
+    color: #fff;
+  }
+}
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+  #cs-navigation .cs-dropdown {
+    position: relative;
+  }
+  #cs-navigation .cs-dropdown:hover {
+    cursor: pointer;
+  }
+  #cs-navigation .cs-dropdown:hover .cs-drop-ul {
+    opacity: 1;
+    visibility: visible;
+    transform: scaleY(1);
+  }
+  #cs-navigation .cs-dropdown:hover .cs-drop-li {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  #cs-navigation .cs-drop-icon {
+    width: 0.9375rem;
+    height: auto;
+    display: inline-block;
+  }
+  #cs-navigation .cs-drop-ul {
+    min-width: 12.5rem;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    box-shadow: inset rgba(149, 157, 165, 0.1) 0px 8px 10px;
+    opacity: 0;
+    border-bottom: 5px solid var(--primary);
+    border-radius: 0 0 1.5rem 1.5rem;
+    visibility: hidden;
+    /* if you have 8 or more links in your dropdown nav, uncomment the columns property to make the list into 2 even columns. Change it to 3 or 4 if you need extra columns. Then remove the transition delays on the cs-drop-li so they don't have weird scattered animations */
+    position: absolute;
+    top: 100%;
+    z-index: -100;
+    overflow: hidden;
+    transform: scaleY(0);
+    transition: transform 0.3s, visibility 0.3s, opacity 0.3s;
+    transform-origin: top;
+  }
+  #cs-navigation .cs-drop-li {
+    font-size: 1rem;
+    text-decoration: none;
+    list-style: none;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    display: block;
+    transform: translateY(-0.625rem);
+    transition: opacity 0.6s, transform 0.6s;
+  }
+  #cs-navigation .cs-drop-li:nth-of-type(1) {
+    transition-delay: 0.05s;
+  }
+  #cs-navigation .cs-drop-li:nth-of-type(2) {
+    transition-delay: 0.1s;
+  }
+  #cs-navigation .cs-drop-li:nth-of-type(3) {
+    transition-delay: 0.15s;
+  }
+  #cs-navigation .cs-drop-li:nth-of-type(4) {
+    transition-delay: 0.2s;
+  }
+  #cs-navigation .cs-drop-li:nth-of-type(5) {
+    transition-delay: 0.25s;
+  }
+  #cs-navigation .cs-drop-li:nth-of-type(6) {
+    transition-delay: 0.3s;
+  }
+  #cs-navigation .cs-drop-li:nth-of-type(7) {
+    transition-delay: 0.35s;
+  }
+  #cs-navigation .cs-drop-li:nth-of-type(8) {
+    transition-delay: 0.4s;
+  }
+  #cs-navigation .cs-drop-li:nth-of-type(9) {
+    transition-delay: 0.45s;
+  }
+  #cs-navigation .cs-li-link.cs-drop-link {
+    font-size: 1rem;
+    line-height: 1.5em;
+    text-transform: capitalize;
+    text-decoration: none;
+    white-space: nowrap;
+    width: 100%;
+    /* prevents padding from affecting height and width */
+    box-sizing: border-box;
+    padding: 0.75rem;
+    color: var(--headerColor);
+    display: block;
+    transition: color 0.3s, background-color 0.3s;
+  }
+  #cs-navigation .cs-li-link.cs-drop-link:hover {
+    color: var(--bodyTextColorWhite);
+    background-color: var(--primary);
+  }
+  #cs-navigation .cs-li-link.cs-drop-link:before {
+    display: none;
+  }
+}
+
+
+
+                                
+                                
+/*-- -------------------------- -->
+<---    Side By Side Reverse    -->
+<--- -------------------------- -*/
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+  #sbsr-2231 {
+    padding: var(--sectionPadding);
+    background-color: #fdfaf8;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+  }
+  #sbsr-2231 .cs-container {
+    width: 100%;
+    /* changes to 1280px at tablet */
+    max-width: 44rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* 48px - 64px */
+    gap: clamp(3rem, 6vw, 4rem);
+  }
+  #sbsr-2231 .cs-content {
+    /* set text align to left if content needs to be left aligned */
+    text-align: center;
+    width: 100%;
+    max-width: 36.625rem;
+    display: flex;
+    flex-direction: column;
+    /* centers content horizontally, set to flex-start to left align */
+    align-items: center;
+  }
+  #sbsr-2231 .cs-title {
+    max-width: 30ch;
+  }
+  #sbsr-2231 .cs-text {
+    margin-bottom: 2rem;
+  }
+  #sbsr-2231 .cs-button-solid {
+    font-size: 1rem;
+    font-weight: 700;
+    /* 46px - 56px */
+    line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+    text-align: center;
+    text-decoration: none;
+    min-width: 9.375rem;
+    margin: 0;
+    padding: 0 1.5rem;
+    background-color: var(--primary);
+    color: #f7f7f7;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+  }
+  #sbsr-2231 .cs-button-solid:before {
+    content: "";
+    width: 0%;
+    height: 100%;
+    background: #000;
+    opacity: 1;
+    border-radius: 0.25rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: width 0.3s;
+  }
+  #sbsr-2231 .cs-button-solid:hover:before {
+    width: 100%;
+  }
+  #sbsr-2231 .cs-image-group {
+    /* scales the whole section down and ties the font size to the vw and stops at 75% of the vale of 1em, changes at desktop */
+    font-size: min(2.17vw, .8rem);
+    /* everything inside this box is in ems so we can scale it all down proportionally with a font size */
+    width: 41.875em;
+    height: 26.75em;
+    position: relative;
+    z-index: 1;
+    /* prevents flexbox from squishing it */
+    flex: none;
+    order: -1;
+  }
+  #sbsr-2231 .cs-picture {
+    display: block;
+    position: absolute;
+  }
+  #sbsr-2231 .cs-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  #sbsr-2231 .cs-picture1 {
+    width: 16.5625em;
+    height: 20.25em;
+    bottom: 1.25em;
+    left: 1.25em;
+  }
+  #sbsr-2231 .cs-picture1::before {
+    content: "";
+    width: 14.125em;
+    height: 63.271605%;
+    border: 0.25em solid var(--secondary);
+    position: absolute;
+    bottom: -1.25em;
+    left: -1.25em;
+    z-index: -1;
+  }
+  #sbsr-2231 .cs-picture2 {
+    width: 21.5625em;
+    height: 25.5em;
+    top: 1.25em;
+    right: 1.25em;
+  }
+  #sbsr-2231 .cs-picture2::before {
+    content: "";
+    width: 12.3125em;
+    height: 57.598039%;
+    border: 0.25em solid var(--secondary);
+    position: absolute;
+    top: -1.25em;
+    right: -1.25em;
+    z-index: -1;
+  }
+  #sbsr-2231 .cs-flower {
+    /* 84px - 309px */
+    width: clamp(5.25rem, 22vw, 19.3125rem);
+    height: auto;
+    display: block;
+    position: absolute;
+    /* 16px - 114px */
+    top: calc(clamp(1rem, 7vw, 7.125rem) * -1);
+    /* 32px - 100px */
+    right: calc(clamp(2rem, 8vw, 6.25rem) * -1);
+    z-index: -1;
+  }
+}
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+  #sbsr-2231 .cs-container {
+    max-width: 80rem;
+  }
+  #sbsr-2231 .cs-image-group {
+    order: initial;
+  }
+}
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+  #sbsr-2231 .cs-container {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  #sbsr-2231 .cs-content {
+    text-align: left;
+    align-items: flex-start;
+    align-self: center;
+  }
+  #sbsr-2231 .cs-image-group {
+    font-size: min(1.3vw, 1rem);
+    min-height: 26.75em;
+    height: auto;
+  }
+  #sbsr-2231 .cs-picture1 {
+    height: auto;
+    top: 3.875em;
+    bottom: 2.625em;
+  }
+  #sbsr-2231 .cs-picture2 {
+    height: auto;
+    top: 1.25em;
+    bottom: 0em;
+  }
+}
+/* Large Desktop - 1400px */
+@media only screen and (min-width: 87.5rem) {
+  #sbsr-2231 .cs-flower {
+    left: -4.375rem;
+    right: auto;
+    top: -1.875rem;
+    transform: rotate(-100deg);
+  }
+}
+                                
                                 
                                 
