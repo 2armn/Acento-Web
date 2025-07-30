@@ -4,7 +4,7 @@
     from this central sheet, simplifying site-wide edits. 
     For instance, if you want to modify how your h2's appear across the site, you just update it once in 
     the global styles, and the changes apply everywhere. */
-    --primary: #ff6a3e;
+    --primary: #ff6a3e; /* #e2ddc9 COLOR BEICH */
     --primaryLight: #ffba43;
     --secondary: #ffba43;
     --secondaryLight: #ffba43;

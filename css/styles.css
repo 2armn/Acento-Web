@@ -532,7 +532,7 @@
     content: "";
     width: 0;
     height: 100%;
-    background: #000;
+    background: #31281e;
     opacity: 1;
     position: absolute;
     top: 0;
@@ -571,7 +571,7 @@
     content: '';
     position: absolute;
     display: block;
-    background: #000;
+    background: #31281e;
     opacity: 1;
     /* so it sits on top of the border */
     top: -1px;
@@ -1426,7 +1426,7 @@
     /* 16px left & right */
     padding: clamp(1rem, 3vw, 2rem) clamp(1rem, 2.4vw, 1rem);
     background-color: #fff;
-    display: flex;
+    display: flex;                     
     align-items: flex-start;
     gap: 0.5rem;
     position: absolute;
@@ -1459,16 +1459,17 @@
   }
   #contact-2320 .cs-header {
     font-size: 1.25rem;
-    font-weight: 700;
+    font-weight: 900;
     line-height: 1.2em;
     margin: 0 0 0.5rem;
-    color: var(--headerColor);
+    color: var(--primary);  /* CAMBIO DE COLOR A UNO MAS VIVO ----> color: var(--headerColor); */
   }
   #contact-2320 .cs-address {
     font-size: clamp(0.75rem, 2.8vw, 1rem);
     line-height: 1.5em;
     margin: 0;
     color: var(--bodyTextColor);
+    font-weight: 600;    /* LE AGREGE MAS PESO PARA QUE RESALTE UN POCO MAS */
   }
   #contact-2320 .cs-hours {
     text-align: center;
